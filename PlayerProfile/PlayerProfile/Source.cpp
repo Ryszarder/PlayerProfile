@@ -8,8 +8,8 @@
 
 void Profile(DataManage* data)
 {
-	int cout = 3;
-	UserProfile** pUser = new UserProfile*[cout];
+	int count = 3;
+	UserProfile** pUser = new UserProfile*[count];
 	pUser[0] = new UserProfile();
 	pUser[1] = new UserProfile();
 	pUser[2] = new UserProfile();
@@ -26,7 +26,7 @@ void Profile(DataManage* data)
 	pUser[1]->SetHighScore(50);
 	pUser[2]->SetHighScore(10);
 
-	data->WriteFile();
+	data->WriteFile(pUser[count], count);
 }
 
 int main()
@@ -37,7 +37,7 @@ int main()
 	
 	Profile(data);
 
-	/*UserProfile pUser = ->ReadFile();*/
+	UserProfile* pUser = data->ReadFile(*data, count);
 
 	getchar();
 
