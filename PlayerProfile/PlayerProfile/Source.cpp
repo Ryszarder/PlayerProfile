@@ -37,7 +37,7 @@ int main()
 	
 	Profile(data);
 
-	UserProfile* pUser = data->ReadFile(*data, count);
+	//UserProfile* pUser = data->ReadFile(*data, count);
 
 	getchar();
 

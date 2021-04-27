@@ -22,7 +22,7 @@ void* DataManage::WriteFile(UserProfile pUser[], int count)
 	}
 }
 
-void* DataManage::ReadFile(DataManage data, int count)
+void DataManage::ReadFile(DataManage pdata, int count)
 {
 	std::fstream file;
 	file.open("data.dat", std::ios_base::in | std::ios_base::binary);
