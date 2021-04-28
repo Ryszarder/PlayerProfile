@@ -26,7 +26,7 @@ void Profile(DataManage* data)
 	pUser[1]->SetHighScore(50);
 	pUser[2]->SetHighScore(10);
 
-	data->WriteFile(pUser[count], count);
+	data->WriteFile(pUser);
 }
 
 int main()

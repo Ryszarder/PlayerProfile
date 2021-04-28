@@ -4,8 +4,8 @@ class DataManage
 {
 public:
 	DataManage();
-	void* WriteFile(UserProfile pUser[], int count);
-	void ReadFile(DataManage pdata, int count);
+	void* WriteFile(UserProfile pUser);
+	void ReadFile();
 
 private:
 
