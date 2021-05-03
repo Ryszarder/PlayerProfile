@@ -11,7 +11,7 @@ void UserPlayer::SetName()
 
 }
 
-const char* UserPlayer::GetName()
+char* UserPlayer::GetName()
 {
 
 }

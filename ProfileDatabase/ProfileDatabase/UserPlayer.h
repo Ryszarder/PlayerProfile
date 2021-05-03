@@ -4,7 +4,7 @@ class UserPlayer
 public:
 	UserPlayer();
 	void SetName();
-	const char* GetName();
+	char* GetName();
 
 	void SetHighScore();
 	int GetHighScore();
