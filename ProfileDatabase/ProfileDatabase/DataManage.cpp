@@ -3,16 +3,19 @@
 #include <iostream>
 #include <fstream>
 
-//#define MAX_ENTRIES 10;
+#define MAX_ENTRIES 10
 
 DataManage::DataManage()
 {
 	//UserPlayer* pUser = new UserPlayer;
 
-	int count = 0;
-
-	UserPlayer** List = new UserPlayer*[count];
+	UserPlayer** List = new UserPlayer*[MAX_ENTRIES];
+	for (int i = 0; i < MAX_ENTRIES; ++i)
+	{
+		List[i] = new UserPlayer();
+	}
 	
+	count = 0;
 }
 
 void DataManage::ReadFile()
@@ -23,25 +26,22 @@ void DataManage::ReadFile()
 	{
 		while (!file.eof() && file.peek() != EOF)
 		{
-			UserPlayer List;
-			file.read((char*)&List, sizeof(UserPlayer));
-			std::cout << List.GetName() << ", " << List.GetHighScore() << std::endl;
+			UserPlayer Post;
+			file.read((char*)&Post, sizeof(UserPlayer));
+			Add(Post.GetName(), Post.GetHighScore());
 		}
 	}
 }
 
 void DataManage::WriteFile()
 {
-	int count = 10;
-	UserPlayer* List = new UserPlayer[count];
-
 	std::fstream file;
 	file.open("data.dat", std::ios_base::out | std::ios_base::binary);
 	if (file.is_open())
 	{
 		for (int i = 0; i < count; ++i)
 		{
-			file.write((char*)&List[i], sizeof(UserPlayer));
+			file.write((char*)List[i], sizeof(UserPlayer));
 		}
 		file.close();
 	}
@@ -59,14 +59,8 @@ void DataManage::Edit()
 
 void DataManage::Add(char* name, int score)
 {
-	int count = 10;
-	UserPlayer* List = new UserPlayer[count];
+	List[count]->SetName(name);
+	List[count]->SetHighScore(score);
 
-	for (int i = 0; i < count; ++i)
-	{
-		List[i].SetName(name);
-		List[i].SetHighScore(score);
-
-		count++;
-	}
+	count++;
 }

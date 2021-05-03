@@ -10,7 +10,7 @@ int main()
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	DataManage* pData = new DataManage;
-	UserPlayer* pUser = new UserPlayer;
+	/*UserPlayer* pUser = new UserPlayer;*/
 
 	bool running = true;
 
