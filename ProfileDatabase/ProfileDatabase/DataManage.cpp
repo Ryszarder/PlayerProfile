@@ -9,7 +9,7 @@ DataManage::DataManage()
 {
 	//UserPlayer* pUser = new UserPlayer;
 
-	UserPlayer** List = new UserPlayer*[MAX_ENTRIES];
+	List = new UserPlayer*[MAX_ENTRIES];
 	for (int i = 0; i < MAX_ENTRIES; ++i)
 	{
 		List[i] = new UserPlayer();
@@ -57,10 +57,10 @@ void DataManage::Edit()
 	//Binary Search
 }
 
-void DataManage::Add(char* name, int score)
+void DataManage::Add(char* szName, int nScore)
 {
-	List[count]->SetName(name);
-	List[count]->SetHighScore(score);
+	List[count]->SetName(szName);
+	List[count]->SetHighScore(nScore);
 
 	count++;
 }

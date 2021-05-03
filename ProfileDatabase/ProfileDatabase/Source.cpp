@@ -23,12 +23,12 @@ int main()
 		std::cout << "Here are Your opions" << std::endl;
 		std::cout << "Add, Write, Read, Edit, Sort, Quit" << std::endl;
 
-		char action[10];
+		char action[64];
 		std::cin >> action;
 
 		if (strcmp(action, "Add") == 0)
 		{
-			char name[10];
+			char name[64];
 			std::cout << "Name:" << std::endl;
 			std::cin >> name;
 
