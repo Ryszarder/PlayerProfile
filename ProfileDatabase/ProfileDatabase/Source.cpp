@@ -19,35 +19,40 @@ int main()
 
 		std::cout << " " << std::endl;
 		pData->ReadFile();
-		//std::cout << give opion for Write, Read, Edit, Sort, Quit << std::endl;
+		std::cout << "Add, Write, Read, Edit, Sort, Quit" << std::endl;
 
 		char action[10];
 		std::cin >> action;
 
-		if (strcmp(action, "Write") == 0)
+		if (strcmp(action, "Add") == 0)
 		{
 			//pData.Write();
 		}
 
-		if (strcmp(action, "Read") == 0)
-		{
-			//pData.Load();
-		}
+		//if (strcmp(action, "Write") == 0)
+		//{
+		//	//pData.Write();
+		//}
 
-		if (strcmp(action, "Edit") == 0)
-		{
-			//pData.Edit();
-		}
+		//if (strcmp(action, "Read") == 0)
+		//{
+		//	//pData.Load();
+		//}
 
-		if (strcmp(action, "Sort") == 0)
-		{
-			//pData.Sort();
-		}
+		//if (strcmp(action, "Edit") == 0)
+		//{
+		//	//pData.Edit();
+		//}
 
-		if (strcmp(action, "Quit") == 0)
-		{
-			//pData.Quit();
-		}
+		//if (strcmp(action, "Sort") == 0)
+		//{
+		//	//pData.Sort();
+		//}
+
+		//if (strcmp(action, "Quit") == 0)
+		//{
+		//	//pData.Quit();
+		//}
 
 	}
 

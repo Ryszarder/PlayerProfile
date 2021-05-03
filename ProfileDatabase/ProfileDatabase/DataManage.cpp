@@ -3,13 +3,16 @@
 #include <iostream>
 #include <fstream>
 
-#define MAX_ENTRIES 10;
+//#define MAX_ENTRIES 10;
 
 DataManage::DataManage()
 {
-	UserPlayer* pUser = new UserPlayer;
+	//UserPlayer* pUser = new UserPlayer;
 
-	int count = 0;
+	int count = 10;
+
+	UserPlayer** List = new UserPlayer*[count];
+	
 }
 
 void DataManage::ReadFile()
@@ -20,17 +23,16 @@ void DataManage::ReadFile()
 	{
 		while (!file.eof() && file.peek() != EOF)
 		{
-			UserPlayer pUser;
-			file.read((char*)&pUser, sizeof(UserPlayer));
-			std::cout << pUser.GetName() << ", " << pUser.GetHighScore() << std::endl;
+			UserPlayer List;
+			file.read((char*)&List, sizeof(UserPlayer));
+			std::cout << List.GetName() << ", " << List.GetHighScore() << std::endl;
 		}
 	}
 }
 
 void DataManage::WriteFile()
 {
-	UserPlayer pUser[];
-	int count = 0;
+	int count = 10;
 
 	std::fstream file;
 	file.open("data.dat", std::ios_base::out | std::ios_base::binary);
@@ -38,7 +40,7 @@ void DataManage::WriteFile()
 	{
 		for (int i = 0; i < count; ++i)
 		{
-			file.write((char*)&pUser[i], sizeof(UserPlayer));
+			file.write((char*)&List[i], sizeof(UserPlayer));
 		}
 		file.close();
 	}
