@@ -7,9 +7,10 @@ public:
 	void ReadFile();
 	void Sort();
 	void Edit();
-	void Add(char name, int score);
+	void Add(char* szName, int nScore);
 
 private:
-
+	UserPlayer** List;
+	int count;
 };
 

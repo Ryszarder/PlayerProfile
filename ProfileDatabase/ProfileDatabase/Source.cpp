@@ -16,10 +16,11 @@ int main()
 
 	while (running)
 	{
-		system("cls");
+		/*system("cls");*/
+
+		pData->ReadFile();
 
 		std::cout << "Here are Your opions" << std::endl;
-		pData->ReadFile();
 		std::cout << "Add, Write, Read, Edit, Sort, Quit" << std::endl;
 
 		char action[10];
@@ -35,7 +36,7 @@ int main()
 			std::cout << "Score:" << std::endl;
 			std::cin >> score;
 
-			pData->Add(*name, score);
+			pData->Add(name, score);
 		}
 
 		if (strcmp(action, "Write") == 0)

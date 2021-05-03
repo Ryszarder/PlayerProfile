@@ -12,7 +12,6 @@ public:
 private:
 	char m_szName[64];
 	int m_nScore;
-	UserPlayer** List;
-	int count;
+	
 };
 

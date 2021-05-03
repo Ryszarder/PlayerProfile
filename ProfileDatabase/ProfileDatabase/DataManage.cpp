@@ -57,18 +57,15 @@ void DataManage::Edit()
 
 }
 
-void DataManage::Add(char name, int score)
+void DataManage::Add(char* name, int score)
 {
-	int count = 0;
+	int count = 10;
 	UserPlayer* List = new UserPlayer[count];
 
-	for (int i = 0; i < count; i++)
+	for (int i = 0; i < count; ++i)
 	{
-		List[i].SetName(&name);
+		List[i].SetName(name);
 		List[i].SetHighScore(score);
-
-		std::cout << List[i].GetName() << std::endl;
-		std::cout << List[i].GetHighScore() << std::endl;
 
 		count++;
 	}
