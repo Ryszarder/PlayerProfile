@@ -10,6 +10,7 @@ int main()
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	DataManage* pData = new DataManage;
+	UserPlayer* pUser = new UserPlayer;
 
 	bool running;
 
@@ -26,7 +27,17 @@ int main()
 
 		if (strcmp(action, "Add") == 0)
 		{
-			//pData.Write();
+			char name[10];
+			std::cout << "Name:" << std::endl;
+			std::cin >> name;
+			std::cout << name << std::endl;
+
+			int score;
+			std::cout << "Score:" << std::endl;
+			std::cin >> score;
+			std::cout << score << std::endl;
+
+			
 		}
 
 		//if (strcmp(action, "Write") == 0)

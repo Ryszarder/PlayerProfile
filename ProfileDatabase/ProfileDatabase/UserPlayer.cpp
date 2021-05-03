@@ -6,9 +6,9 @@ UserPlayer::UserPlayer()
 
 }
 
-void UserPlayer::SetName(char* szText)
+void UserPlayer::SetName(char* szName)
 {
-	strcpy_s(m_szName, 64, szText);
+	strcpy_s(m_szName, 64, szName);
 }
 
 char* UserPlayer::GetName()

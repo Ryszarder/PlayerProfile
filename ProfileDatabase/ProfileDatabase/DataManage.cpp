@@ -55,3 +55,8 @@ void DataManage::Edit()
 {
 
 }
+
+void DataManage::Add()
+{
+
+}

@@ -3,7 +3,7 @@ class UserPlayer
 {
 public:
 	UserPlayer();
-	void SetName(char* szText);
+	void SetName(char* szName);
 	char* GetName();
 
 	void SetHighScore(int nScore);
