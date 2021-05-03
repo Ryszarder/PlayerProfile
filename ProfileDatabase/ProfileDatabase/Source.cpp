@@ -18,7 +18,7 @@ int main()
 		system("cis");
 
 		std::cout << " " << std::endl;
-		/*std::cout <<  load user data   << std::endl;*/
+		pData->ReadFile();
 		//std::cout << give opion for Write, Read, Edit, Sort, Quit << std::endl;
 
 		char action[10];
