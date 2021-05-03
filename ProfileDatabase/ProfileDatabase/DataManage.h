@@ -7,7 +7,7 @@ public:
 	void ReadFile();
 	void Sort();
 	void Edit();
-	void Add();
+	void Add(char name, int score);
 
 private:
 	UserPlayer** List;

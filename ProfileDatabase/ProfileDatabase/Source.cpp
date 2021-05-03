@@ -37,7 +37,7 @@ int main()
 			std::cin >> score;
 			std::cout << score << std::endl;
 
-			
+			pData->Add(*name, score);
 		}
 
 		//if (strcmp(action, "Write") == 0)
