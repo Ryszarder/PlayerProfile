@@ -33,6 +33,7 @@ void DataManage::ReadFile()
 void DataManage::WriteFile()
 {
 	int count = 10;
+	UserPlayer* List = new UserPlayer[count];
 
 	std::fstream file;
 	file.open("data.dat", std::ios_base::out | std::ios_base::binary);

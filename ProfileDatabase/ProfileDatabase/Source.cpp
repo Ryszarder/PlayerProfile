@@ -12,13 +12,13 @@ int main()
 	DataManage* pData = new DataManage;
 	UserPlayer* pUser = new UserPlayer;
 
-	bool running;
+	bool running = true;
 
 	while (running)
 	{
-		system("cis");
+		system("cls");
 
-		std::cout << " " << std::endl;
+		std::cout << "Here are Your opions" << std::endl;
 		pData->ReadFile();
 		std::cout << "Add, Write, Read, Edit, Sort, Quit" << std::endl;
 
@@ -30,25 +30,23 @@ int main()
 			char name[10];
 			std::cout << "Name:" << std::endl;
 			std::cin >> name;
-			std::cout << name << std::endl;
 
 			int score;
 			std::cout << "Score:" << std::endl;
 			std::cin >> score;
-			std::cout << score << std::endl;
 
 			pData->Add(*name, score);
 		}
 
-		//if (strcmp(action, "Write") == 0)
-		//{
-		//	//pData.Write();
-		//}
+		if (strcmp(action, "Write") == 0)
+		{
+			pData->WriteFile();
+		}
 
-		//if (strcmp(action, "Read") == 0)
-		//{
-		//	//pData.Load();
-		//}
+		if (strcmp(action, "Read") == 0)
+		{
+			pData->ReadFile();
+		}
 
 		//if (strcmp(action, "Edit") == 0)
 		//{

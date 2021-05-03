@@ -10,7 +10,6 @@ public:
 	void Add(char name, int score);
 
 private:
-	UserPlayer** List;
 
 };
 
