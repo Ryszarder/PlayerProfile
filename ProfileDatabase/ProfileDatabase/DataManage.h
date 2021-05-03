@@ -9,6 +9,7 @@ public:
 	void Sort();
 	void Edit();
 	void Add(char* szName, int nScore);
+	void Print();
 
 private:
 	UserPlayer** List;

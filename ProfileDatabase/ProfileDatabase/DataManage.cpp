@@ -49,12 +49,12 @@ void DataManage::WriteFile()
 
 void DataManage::Sort()
 {
-
+	//Bubble Sort
 }
 
 void DataManage::Edit()
 {
-
+	//Binary Search
 }
 
 void DataManage::Add(char* name, int score)
@@ -63,4 +63,9 @@ void DataManage::Add(char* name, int score)
 	List[count]->SetHighScore(score);
 
 	count++;
+}
+
+void DataManage::Print()
+{
+	//Print Out the Users
 }
