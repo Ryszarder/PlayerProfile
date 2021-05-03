@@ -4,8 +4,11 @@
 #include "DataManage.h"
 #include "UserProfile.h"
 
+//#define Max_
+
 DataManage::DataManage()
 {
+
 	ReadFile();
 }
 
@@ -38,5 +41,10 @@ void DataManage::ReadFile()
 
 		file.close();
 	}
+}
+
+void DataManage::Sort()
+{
+
 }
 
