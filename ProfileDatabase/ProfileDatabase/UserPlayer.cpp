@@ -3,7 +3,8 @@
 
 UserPlayer::UserPlayer()
 {
-
+	strcpy_s(m_szName, 64, "Test");
+	m_nScore = 0;
 }
 
 void UserPlayer::SetName(char* szName)
