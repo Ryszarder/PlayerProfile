@@ -3,13 +3,13 @@
 
 UserPlayer::UserPlayer()
 {
-	strcpy_s(m_szName, 64, "Test");
+	strcpy_s(m_szName, 128, "Test");
 	m_nScore = 0;
 }
 
 void UserPlayer::SetName(char* szName)
 {
-	strcpy_s(m_szName, 64, szName);
+	strcpy_s(m_szName, 128, szName);
 }
 
 char* UserPlayer::GetName()

@@ -26,9 +26,18 @@ void DataManage::ReadFile()
 	{
 		while (!file.eof() && file.peek() != EOF)
 		{
-			UserPlayer Post;
-			file.read((char*)&Post, sizeof(UserPlayer));
-			Add(Post.GetName(), Post.GetHighScore());
+		
+			for (int i = 0; i < MAX_ENTRIES; ++i)
+			{
+				UserPlayer Post;
+				file.read((char*)&Post, sizeof(UserPlayer));
+				List[i] = &Post;
+				std::cout << Post.GetName() << std::endl;
+				std::cout << Post.GetHighScore() << std::endl;
+
+			
+			}
+			/*Add(Post.GetName(), Post.GetHighScore());*/
 		}
 	}
 }

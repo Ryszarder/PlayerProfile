@@ -18,7 +18,7 @@ int main()
 	{
 		/*system("cls");*/
 
-		pData->ReadFile();
+		/*pData->ReadFile()*/;
 
 		std::cout << "Here are Your opions" << std::endl;
 		std::cout << "Add, Write, Read, Edit, Sort, Quit" << std::endl;
@@ -28,7 +28,7 @@ int main()
 
 		if (strcmp(action, "Add") == 0)
 		{
-			char name[64];
+			char name[128];
 			std::cout << "Name:" << std::endl;
 			std::cin >> name;
 

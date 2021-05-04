@@ -10,7 +10,7 @@ public:
 	int GetHighScore();
 
 private:
-	char m_szName[64];
+	char m_szName[128];
 	int m_nScore;
 	
 };
