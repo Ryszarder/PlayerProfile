@@ -57,10 +57,10 @@ int main()
 		//	//pData.Edit();
 		//}
 
-		/*if (strcmp(action, "Sort") == 0)
+		if (strcmp(action, "Sort") == 0)
 		{
 			pData->Sort();
-		}*/
+		}
 
 		//if (strcmp(action, "Quit") == 0)
 		//{
