@@ -24,7 +24,7 @@ int main()
 		pData->Print();
 
 		std::cout << "Here are Your opions" << std::endl;
-		std::cout << "Add, Write, Read, Edit, Sort, Quit" << std::endl;
+		std::cout << "Add, Save, Edit, Sort, Quit" << std::endl;
 
 		char action[64];
 		std::cin >> action;
@@ -42,14 +42,9 @@ int main()
 			pData->Add(name, score);
 		}
 
-		if (strcmp(action, "Write") == 0)
+		if (strcmp(action, "Save") == 0)
 		{
 			pData->WriteFile();
-		}
-
-		if (strcmp(action, "Read") == 0)
-		{
-			pData->ReadFile();
 		}
 
 		//if (strcmp(action, "Edit") == 0)
@@ -62,10 +57,11 @@ int main()
 			pData->Sort();
 		}
 
-		//if (strcmp(action, "Quit") == 0)
-		//{
-		//	//pData.Quit();
-		//}
+		if (strcmp(action, "Quit") == 0)
+		{
+			pData->WriteFile();
+			exit(0);
+		}
 
 	}
 

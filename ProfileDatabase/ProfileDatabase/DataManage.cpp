@@ -91,10 +91,14 @@ void DataManage::Add(char* szName, int nScore)
 
 void DataManage::Print()
 {
+	int board = 1;
+
 	//Print Out the Users
 	for (int i = 0; i < count; ++i)
 	{
-		std::cout << List[i]->GetName() << "\n" << List[i]->GetHighScore() << std::endl;
+		std::cout << board << " " << List[i]->GetName() << "  " << List[i]->GetHighScore() << std::endl;
+
+		++board;
 	}
 }
 
