@@ -59,7 +59,7 @@ int main()
 
 		/*if (strcmp(action, "Sort") == 0)
 		{
-			pData->Sort(pData[], int count);
+			pData->Sort();
 		}*/
 
 		//if (strcmp(action, "Quit") == 0)

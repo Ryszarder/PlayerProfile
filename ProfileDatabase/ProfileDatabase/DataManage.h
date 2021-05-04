@@ -6,7 +6,7 @@ public:
 	DataManage();
 	void WriteFile();
 	void ReadFile();
-	void Sort(UserPlayer List[]/*, int count*/);
+	void Sort(UserPlayer List[]);
 	void Edit();
 	void Add(char* szName, int nScore);
 	void Print();

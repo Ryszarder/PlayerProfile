@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 
+
 #define MAX_ENTRIES 5
 
 DataManage::DataManage()
@@ -31,7 +32,6 @@ void DataManage::ReadFile()
 			//std::cout << Post.GetName() << std::endl;
 			//std::cout << Post.GetHighScore() << std::endl;
 			Add(Post.GetName(), Post.GetHighScore());
-			
 		}
 	}
 }
@@ -46,25 +46,28 @@ void DataManage::WriteFile()
 		{
 			file.write((char*)List[i], sizeof(UserPlayer));
 		}
-
 		file.close();
 	}
 }
 
-void DataManage::Sort(UserPlayer List[]/*, int count*/)
+void DataManage::Sort(UserPlayer List[])
 {
 	//Bubble Sort
 	bool sorted = false;
+	char temp[100];
+
 		while (!sorted)
 		{
 			sorted = true;
 			for (int i = 0; i < count - 1; ++i)
 			{
-				if (strcmp(List[i], List[i + 1]) > 0)
+				if (strcmp(List[i].GetName(), List[i + 1].GetName()) > 0)
 				{
+
 					sorted = false;
-					std::swap(List[i], List[i + 1]);
-				
+					(temp, List[i]);
+					(List[i], List[i + 1]);
+					(List[i + 1], temp);
 				}
 						
 			}
@@ -87,7 +90,7 @@ void DataManage::Add(char* szName, int nScore)
 void DataManage::Print()
 {
 	//Print Out the Users
-	for (int i = 1; i < count; ++i)
+	for (int i = 0; i < count; ++i)
 	{
 		std::cout << List[i]->GetName() << "\n" << List[i]->GetHighScore() << std::endl;
 	}
