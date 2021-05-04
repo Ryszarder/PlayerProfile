@@ -31,6 +31,7 @@ void DataManage::ReadFile()
 			//std::cout << Post.GetName() << std::endl;
 			//std::cout << Post.GetHighScore() << std::endl;
 			Add(Post.GetName(), Post.GetHighScore());
+			
 		}
 	}
 }
@@ -45,13 +46,29 @@ void DataManage::WriteFile()
 		{
 			file.write((char*)List[i], sizeof(UserPlayer));
 		}
+
 		file.close();
 	}
 }
 
-void DataManage::Sort()
+void DataManage::Sort(UserPlayer List[]/*, int count*/)
 {
 	//Bubble Sort
+	bool sorted = false;
+		while (!sorted)
+		{
+			sorted = true;
+			for (int i = 0; i < count - 1; ++i)
+			{
+				if (strcmp(List[i], List[i + 1]) > 0)
+				{
+					sorted = false;
+					std::swap(List[i], List[i + 1]);
+				
+				}
+						
+			}
+		}
 }
 
 void DataManage::Edit()
@@ -75,3 +92,5 @@ void DataManage::Print()
 		std::cout << List[i]->GetName() << "\n" << List[i]->GetHighScore() << std::endl;
 	}
 }
+
+

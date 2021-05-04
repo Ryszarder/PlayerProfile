@@ -21,7 +21,7 @@ int main()
 	{
 		system("cls");
 
-			pData->Print();
+		pData->Print();
 
 		std::cout << "Here are Your opions" << std::endl;
 		std::cout << "Add, Write, Read, Edit, Sort, Quit" << std::endl;
@@ -57,10 +57,10 @@ int main()
 		//	//pData.Edit();
 		//}
 
-		//if (strcmp(action, "Sort") == 0)
-		//{
-		//	//pData.Sort();
-		//}
+		/*if (strcmp(action, "Sort") == 0)
+		{
+			pData->Sort(pData[], int count);
+		}*/
 
 		//if (strcmp(action, "Quit") == 0)
 		//{
