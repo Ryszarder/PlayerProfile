@@ -16,9 +16,9 @@ int main()
 
 	while (running)
 	{
-		/*system("cls");*/
+		system("cls");
 
-		/*pData->ReadFile()*/;
+		pData->ReadFile();
 
 		std::cout << "Here are Your opions" << std::endl;
 		std::cout << "Add, Write, Read, Edit, Sort, Quit" << std::endl;
