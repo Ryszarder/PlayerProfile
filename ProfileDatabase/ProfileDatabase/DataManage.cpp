@@ -28,9 +28,9 @@ void DataManage::ReadFile()
 		{
 			UserPlayer Post;
 			file.read((char*)&Post, sizeof(UserPlayer));
-			std::cout << Post.GetName() << std::endl;
-			std::cout << Post.GetHighScore() << std::endl;
-			/*Add(Post.GetName(), Post.GetHighScore());*/
+			//std::cout << Post.GetName() << std::endl;
+			//std::cout << Post.GetHighScore() << std::endl;
+			Add(Post.GetName(), Post.GetHighScore());
 		}
 	}
 }
@@ -70,4 +70,8 @@ void DataManage::Add(char* szName, int nScore)
 void DataManage::Print()
 {
 	//Print Out the Users
+	for (int i = 0; i < count; ++i)
+	{
+		std::cout << List[i]->GetName() << "\n" << List[i]->GetHighScore() << std::endl;
+	}
 }

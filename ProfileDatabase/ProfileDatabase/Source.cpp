@@ -10,7 +10,10 @@ int main()
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	DataManage* pData = new DataManage;
+
 	/*UserPlayer* pUser = new UserPlayer;*/
+
+	pData->ReadFile();
 
 	bool running = true;
 
@@ -18,7 +21,7 @@ int main()
 	{
 		system("cls");
 
-		pData->ReadFile();
+		pData->Print();
 
 		std::cout << "Here are Your opions" << std::endl;
 		std::cout << "Add, Write, Read, Edit, Sort, Quit" << std::endl;
