@@ -29,8 +29,6 @@ void DataManage::ReadFile()
 		{
 			UserPlayer Post;
 			file.read((char*)&Post, sizeof(UserPlayer));
-			//std::cout << Post.GetName() << std::endl;
-			//std::cout << Post.GetHighScore() << std::endl;
 			Add(Post.GetName(), Post.GetHighScore());
 		}
 	}
@@ -46,9 +44,6 @@ void DataManage::WriteFile()
 		{
 			file.write((char*)List[i], sizeof(UserPlayer));
 		}
-
-		
-
 		file.close();
 	}
 }
@@ -79,6 +74,10 @@ void DataManage::Sort()
 void DataManage::Edit()
 {
 	//Binary Search
+	std::cout << "Which of the Users would you like to edit" << std::endl;
+	char wordFinder;
+	std::cin >> wordFinder;
+
 }
 
 void DataManage::Add(char* szName, int nScore)
