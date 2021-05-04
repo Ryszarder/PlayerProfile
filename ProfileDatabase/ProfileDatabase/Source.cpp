@@ -28,7 +28,7 @@ int main()
 
 		if (strcmp(action, "Add") == 0)
 		{
-			char name[128];
+			char name[64];
 			std::cout << "Name:" << std::endl;
 			std::cin >> name;
 
