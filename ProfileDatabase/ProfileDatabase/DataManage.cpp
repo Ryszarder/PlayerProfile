@@ -70,7 +70,7 @@ void DataManage::Add(char* szName, int nScore)
 void DataManage::Print()
 {
 	//Print Out the Users
-	for (int i = 0; i < count; ++i)
+	for (int i = 1; i < count; ++i)
 	{
 		std::cout << List[i]->GetName() << "\n" << List[i]->GetHighScore() << std::endl;
 	}

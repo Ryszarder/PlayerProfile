@@ -21,7 +21,7 @@ int main()
 	{
 		system("cls");
 
-		pData->Print();
+			pData->Print();
 
 		std::cout << "Here are Your opions" << std::endl;
 		std::cout << "Add, Write, Read, Edit, Sort, Quit" << std::endl;
