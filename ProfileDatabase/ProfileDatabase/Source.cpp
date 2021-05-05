@@ -47,10 +47,21 @@ int main()
 			pData->WriteFile();
 		}
 
-		//if (strcmp(action, "Edit") == 0)
-		//{
-		//	//pData.Edit();
-		//}
+		if (strcmp(action, "Edit") == 0)
+		{
+			char wordFinder[64];
+			char newName[64];
+			do
+			{
+				std::cout << "Which of the users name would you like to edit" << std::endl;
+				std::cin >> wordFinder;
+				std::cout << "What world you like to change the name to" << std::endl;
+				std::cin >> newName;
+
+
+			} while (!pData->Edit(wordFinder, newName));
+	
+		}
 
 		if (strcmp(action, "Sort") == 0)
 		{

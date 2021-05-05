@@ -71,15 +71,39 @@ void DataManage::Sort()
 		}
 }
 
-void DataManage::Edit()
+bool DataManage::Edit(char* wordFinder, char* newName)
 {
 	//Binary Search
 	//Just do the min, mid, max
 	//i dont need to do the seekg, seekp stuff
 	//just strcmp for the word that was ask to be edit and replace it with the new name they want
-	std::cout << "Which of the Users would you like to edit" << std::endl;
-	char wordFinder;
-	std::cin >> wordFinder;
+
+	int min = 0;
+	int max = count - 1;
+	int mid = (min + max) / 2;
+	
+
+	while (true)
+	{
+		if (min > max)
+			return false;
+		int result = strcmp(List[mid]->GetName(), wordFinder);
+		if (result == 0)
+		{
+			List[mid]->SetName(newName);
+			return true;
+		}
+		else if (result > 0)
+		{
+			max = mid - 1;
+		}
+		else
+		{
+			min = mid + 1;
+		}
+		mid = (min + max) / 2;
+	}
+
 
 }
 
@@ -93,14 +117,11 @@ void DataManage::Add(char* szName, int nScore)
 
 void DataManage::Print()
 {
-	int board = 1;
-
 	//Print Out the Users
 	for (int i = 0; i < count; ++i)
 	{
-		std::cout << board << " " << List[i]->GetName() << "  " << List[i]->GetHighScore() << std::endl;
-
-		++board;
+		std::cout << " " << List[i]->GetName() << "  " << List[i]->GetHighScore() << std::endl;
+		std::cout << "pos " << i << std::endl;
 	}
 }
 
