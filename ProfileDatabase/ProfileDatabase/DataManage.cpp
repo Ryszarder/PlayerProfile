@@ -74,6 +74,9 @@ void DataManage::Sort()
 void DataManage::Edit()
 {
 	//Binary Search
+	//Just do the min, mid, max
+	//i dont need to do the seekg, seekp stuff
+	//just strcmp for the word that was ask to be edit and replace it with the new name they want
 	std::cout << "Which of the Users would you like to edit" << std::endl;
 	char wordFinder;
 	std::cin >> wordFinder;
