@@ -3,32 +3,35 @@
 #include <iostream>
 #include <fstream>
 
-
+//This sets the max amnout of UserPlayers there can be created/have at a time
 #define MAX_ENTRIES 5
 
 DataManage::DataManage()
 {
-	//UserPlayer* pUser = new UserPlayer;
-
+	//Creates the dynamic array which can have up to the Max Users set above
 	List = new UserPlayer*[MAX_ENTRIES];
+	//Loops thorugh the List array to initialize each array
 	for (int i = 0; i < MAX_ENTRIES; ++i)
 	{
 		List[i] = new UserPlayer();
 	}
-	
+	//Set to 0 so it can be used for for loops that loop the List array
 	count = 0;
 }
 
+//Destructor
 DataManage::~DataManage()
 {
-
+	//Loops through to delete all the UserPlayers that are created
 	for (int i = 0; i < count; ++i)
 	{
 		delete List[i];
 	}
+	//Deletes the array of List
 	delete[] List;
 }
 
+//Read the File
 void DataManage::ReadFile()
 {
 	std::fstream file;
@@ -44,6 +47,7 @@ void DataManage::ReadFile()
 	}
 }
 
+//Writes/Saves to the file
 void DataManage::WriteFile()
 {
 	std::fstream file;
@@ -58,6 +62,7 @@ void DataManage::WriteFile()
 	}
 }
 
+//Sorts the UserPlayer name in alphabetical order
 void DataManage::Sort()
 {
 	//Bubble Sort
@@ -81,6 +86,7 @@ void DataManage::Sort()
 	}
 }
 
+//Edits the UserPlayer name and score
 bool DataManage::EditName(char* nameFinder, char* newName, int newScore)
 {
 	//Binary Search
@@ -118,6 +124,7 @@ bool DataManage::EditName(char* nameFinder, char* newName, int newScore)
 
 }
 
+//Creates the new UserPlayer
 void DataManage::Add(char* szName, int nScore)
 {
 	List[count]->SetName(szName);
@@ -126,13 +133,13 @@ void DataManage::Add(char* szName, int nScore)
 	count++;
 }
 
+//Prints the User 
 void DataManage::Print()
 {
 	//Print Out the Users
 	for (int i = 0; i < count; ++i)
 	{
 		std::cout << " " << List[i]->GetName() << "  " << List[i]->GetHighScore() << std::endl;
-		std::cout << "pos " << i << std::endl;
 	}
 }
 
