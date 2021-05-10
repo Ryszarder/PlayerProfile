@@ -49,17 +49,41 @@ int main()
 
 		if (strcmp(action, "Edit") == 0)
 		{
-			char wordFinder[64];
+			char nameFinder[64];
 			char newName[64];
-			do
+			char selection[64];
+			int scoreFinder;
+			int newScore;
+
+			std::cout << "which would you like to edit Name or Score" << std::endl;
+			std::cin >> selection;
+
+			if (strcmp(selection, "Name") == 0)
 			{
-				std::cout << "Which of the users name would you like to edit" << std::endl;
-				std::cin >> wordFinder;
-				std::cout << "What world you like to change the name to" << std::endl;
-				std::cin >> newName;
+				do
+				{
+					std::cout << "Which of the users name would you like to edit" << std::endl;
+					std::cin >> nameFinder;
+					std::cout << "What world you like to change the name to" << std::endl;
+					std::cin >> newName;
 
 
-			} while (!pData->Edit(wordFinder, newName));
+				} while (!pData->EditName(nameFinder, newName));
+			}
+
+			else if (strcmp(selection, "Score") == 0)
+			{
+				do
+				{
+					std::cout << "Which of the users score would you like to edit" << std::endl;
+					std::cin >> scoreFinder;
+					std::cout << "What world you like to change the score to" << std::endl;
+					std::cin >> newScore;
+
+
+				} while (!pData->EditScore(scoreFinder, newScore));
+			}
+
 	
 		}
 
