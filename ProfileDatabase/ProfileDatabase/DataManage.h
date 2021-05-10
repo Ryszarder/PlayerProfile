@@ -4,6 +4,7 @@ class DataManage
 {
 public:
 	DataManage();
+	~DataManage();
 	void WriteFile();
 	void ReadFile();
 	void Sort();

@@ -3,6 +3,7 @@ class UserPlayer
 {
 public:
 	UserPlayer();
+	~UserPlayer();
 	void SetName(char* szName);
 	char* GetName();
 

@@ -7,6 +7,11 @@ UserPlayer::UserPlayer()
 	m_nScore = 0;
 }
 
+UserPlayer::~UserPlayer()
+{
+
+}
+
 void UserPlayer::SetName(char* szName)
 {
 	strcpy_s(m_szName, 64, szName);

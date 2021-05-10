@@ -19,6 +19,17 @@ DataManage::DataManage()
 	count = 0;
 }
 
+DataManage::~DataManage()
+{
+
+	for (int i = 0; i < count; ++i)
+	{
+		delete List[i];
+		++count;
+	}
+	delete[] List;
+}
+
 void DataManage::ReadFile()
 {
 	std::fstream file;
@@ -54,21 +65,21 @@ void DataManage::Sort()
 	bool sorted = false;
 	UserPlayer* temp;
 
-		while (!sorted)
+	while (!sorted)
+	{
+		sorted = true;
+		for (int i = 0; i < count - 1; ++i)
 		{
-			sorted = true;
-			for (int i = 0; i < count - 1; ++i)
+			if (strcmp(List[i]->GetName(), List[i + 1]->GetName()) == 1 )
 			{
-				if (strcmp(List[i]->GetName(), List[i + 1]->GetName()) == 1 )
-				{
-					(temp = List[i]);
-					(List[i] = List[i + 1]);
-					(List[i + 1] = temp);
+				(temp = List[i]);
+				(List[i] = List[i + 1]);
+				(List[i + 1] = temp);
 
-					sorted = false;
-				}	
-			}
+				sorted = false;
+			}	
 		}
+	}
 }
 
 bool DataManage::EditName(char* nameFinder, char* newName, int newScore)
