@@ -71,7 +71,7 @@ void DataManage::Sort()
 		}
 }
 
-bool DataManage::EditName(char* nameFinder, char* newName)
+bool DataManage::EditName(char* nameFinder, char* newName, int newScore)
 {
 	//Binary Search
 	//Just do the min, mid, max
@@ -91,36 +91,6 @@ bool DataManage::EditName(char* nameFinder, char* newName)
 		if (result == 0)
 		{
 			List[mid]->SetName(newName);
-			return true;
-		}
-		else if (result > 0)
-		{
-			max = mid - 1;
-		}
-		else
-		{
-			min = mid + 1;
-		}
-		mid = (min + max) / 2;
-	}
-
-
-}
-
-bool DataManage::EditScore(int scoreFinder, int newScore)
-{
-	int min = 0;
-	int max = count - 1;
-	int mid = (min + max) / 2;
-
-
-	while (true)
-	{
-		if (min > max)
-			return false;
-		int result = List[mid]->GetHighScore(), scoreFinder;
-		if (result == 0)
-		{
 			List[mid]->SetHighScore(newScore);
 			return true;
 		}
@@ -134,6 +104,8 @@ bool DataManage::EditScore(int scoreFinder, int newScore)
 		}
 		mid = (min + max) / 2;
 	}
+
+
 }
 
 void DataManage::Add(char* szName, int nScore)

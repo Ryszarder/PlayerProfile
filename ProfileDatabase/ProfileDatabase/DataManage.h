@@ -7,8 +7,7 @@ public:
 	void WriteFile();
 	void ReadFile();
 	void Sort();
-	bool EditName(char* nameFinder, char* newName);
-	bool EditScore(int* scoreFinder, int newScore);
+	bool EditName(char* nameFinder, char* newName, int newScore);
 	void Add(char* szName, int nScore);
 	void Print();
 
