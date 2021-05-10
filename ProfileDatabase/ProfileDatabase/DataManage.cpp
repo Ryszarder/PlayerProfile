@@ -25,7 +25,6 @@ DataManage::~DataManage()
 	for (int i = 0; i < count; ++i)
 	{
 		delete List[i];
-		++count;
 	}
 	delete[] List;
 }

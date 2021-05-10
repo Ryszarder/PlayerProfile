@@ -96,9 +96,8 @@ int main()
 		{
 			//Runs the save function before quitting
 			pData->WriteFile();
-			//This function is a destructor that destorys the new UserPlayer List so it doesn't cause a memory leak
-			pData->~DataManage();
 			//Deletes the new DataManage pData before memory leak
+			//And calls the destructor that deletes the UserPlayer List
 			delete pData;
 			//Closes the program
 			exit(0);
