@@ -35,15 +35,19 @@ DataManage::~DataManage()
 void DataManage::ReadFile()
 {
 	std::fstream file;
+	//Looks for the txt file name "data.dat" and opens the file
 	file.open("data.dat", std::ios_base::in | std::ios_base::binary);
 	if (file.is_open())
 	{
 		while (!file.eof() && file.peek() != EOF)
 		{
+			//Reads into the file 
 			UserPlayer Post;
 			file.read((char*)&Post, sizeof(UserPlayer));
 			Add(Post.GetName(), Post.GetHighScore());
 		}
+		//Close the file
+		file.close();
 	}
 }
 
@@ -51,13 +55,16 @@ void DataManage::ReadFile()
 void DataManage::WriteFile()
 {
 	std::fstream file;
+	//Looks for the txt file name "data.dat" and opens the file
 	file.open("data.dat", std::ios_base::out | std::ios_base::binary);
 	if (file.is_open())
 	{
+		//Loops through the List array and write them into the file
 		for (int i = 0; i < count; ++i)
 		{
 			file.write((char*)List[i], sizeof(UserPlayer));
 		}
+		//Close the file
 		file.close();
 	}
 }
@@ -69,17 +76,21 @@ void DataManage::Sort()
 	bool sorted = false;
 	UserPlayer* temp;
 
+	//While loop that loops till it's alphabetical order
 	while (!sorted)
 	{
 		sorted = true;
 		for (int i = 0; i < count - 1; ++i)
 		{
+			//Strcmp that if the first name is after the second name it == 1, run if statement
 			if (strcmp(List[i]->GetName(), List[i + 1]->GetName()) == 1 )
 			{
+				//basically moves the Names around till the second is in the first spot and the first is in the second spot
 				(temp = List[i]);
 				(List[i] = List[i + 1]);
 				(List[i + 1] = temp);
 
+				//set the variable flase so it will run again to see if it's alphabetical order
 				sorted = false;
 			}	
 		}
@@ -90,34 +101,40 @@ void DataManage::Sort()
 bool DataManage::EditName(char* nameFinder, char* newName, int newScore)
 {
 	//Binary Search
-	//Just do the min, mid, max
-	//i dont need to do the seekg, seekp stuff
-	//just strcmp for the word that was ask to be edit and replace it with the new name they want
 
+	//Set the variables need for the binary search
 	int min = 0;
 	int max = count - 1;
 	int mid = (min + max) / 2;
 	
-
+	//While loop
 	while (true)
 	{
+		//If min value is bigger than the max value return false
 		if (min > max)
 			return false;
+		//Initialize the result which is a strcmp of the array name with the name seach for
 		int result = strcmp(List[mid]->GetName(), nameFinder);
+		//This means that the result equals true so run if statement
 		if (result == 0)
 		{
 			List[mid]->SetName(newName);
 			List[mid]->SetHighScore(newScore);
 			return true;
 		}
+		//If result bigger than 0 means the result in it the left halve of the binary search
 		else if (result > 0)
 		{
+			//max now equals the mid - 1 as thats the new range of the binary search for the result
 			max = mid - 1;
 		}
+		//If this runs means result in the right side of the binary search
 		else
 		{
+			//min now equals mid + 1 as thats the new range for the result
 			min = mid + 1;
 		}
+		//mid equal min + max divide by 2
 		mid = (min + max) / 2;
 	}
 
@@ -127,6 +144,7 @@ bool DataManage::EditName(char* nameFinder, char* newName, int newScore)
 //Creates the new UserPlayer
 void DataManage::Add(char* szName, int nScore)
 {
+	//Sets the name and score to the List array to the at the position at the count
 	List[count]->SetName(szName);
 	List[count]->SetHighScore(nScore);
 
@@ -139,6 +157,7 @@ void DataManage::Print()
 	//Print Out the Users
 	for (int i = 0; i < count; ++i)
 	{
+		//Writes out how the UserPlayer values will be presented
 		std::cout << " " << List[i]->GetName() << "  " << List[i]->GetHighScore() << std::endl;
 	}
 }
