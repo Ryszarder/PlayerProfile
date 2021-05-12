@@ -144,11 +144,23 @@ bool DataManage::EditName(char* nameFinder, char* newName, int newScore)
 //Creates the new UserPlayer
 void DataManage::Add(char* szName, int nScore)
 {
+	//Checks to see if count value is Larger or equal to MAX_ENTRIES 
+	if (count >= MAX_ENTRIES)
+	{
+		//Write to the console that storge is full
+		char Restart[64];
+		std::cout << "Max proflie have been meet" << std::endl;
+		std::cout << "Write any character to go back to the start" << std::endl;
+		//A way for the String above to stay so they can read before the console refresh
+		std::cin >> Restart;
+	}
 	//Sets the name and score to the List array to the at the position at the count
-	List[count]->SetName(szName);
-	List[count]->SetHighScore(nScore);
-
-	count++;
+	else
+	{
+		List[count]->SetName(szName);
+		List[count]->SetHighScore(nScore);
+		count++;
+	}
 }
 
 //Prints the User 
