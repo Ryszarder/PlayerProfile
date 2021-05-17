@@ -137,8 +137,6 @@ bool DataManage::EditName(char* nameFinder, char* newName, int newScore)
 		//mid equal min + max divide by 2
 		mid = (min + max) / 2;
 	}
-
-
 }
 
 //Creates the new UserPlayer
@@ -173,5 +171,3 @@ void DataManage::Print()
 		std::cout << " " << List[i]->GetName() << "  " << List[i]->GetHighScore() << std::endl;
 	}
 }
-
-

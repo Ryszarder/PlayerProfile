@@ -18,4 +18,3 @@ private:
 	UserPlayer** List;
 	int count;
 };
-

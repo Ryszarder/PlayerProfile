@@ -11,7 +11,6 @@ UserPlayer::UserPlayer()
 //Destructor
 UserPlayer::~UserPlayer()
 {
-
 }
 
 //Sets the name for the User when called
@@ -37,5 +36,3 @@ int UserPlayer::GetHighScore()
 {
 	return m_nScore;
 }
-
-

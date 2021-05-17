@@ -4,7 +4,6 @@
 #include "DataManage.h"
 #include "UserPlayer.h"
 
-
 int main()
 {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
@@ -81,7 +80,6 @@ int main()
 
 				//takes the variables and runs it through the EditName function
 			} while (!pData->EditName(nameFinder, newName, newScore));
-	
 		}
 
 		//Strcmp if action equal "Sort" run if statement
@@ -103,6 +101,5 @@ int main()
 			exit(0);
 		}
 	}
-
 	return 0;
 }

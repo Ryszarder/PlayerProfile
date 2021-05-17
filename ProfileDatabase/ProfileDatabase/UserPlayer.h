@@ -15,6 +15,4 @@ private:
 	//Creates the variables that are only accessible in the UserPlayer file
 	char m_szName[64];
 	int m_nScore;
-	
 };
-
