@@ -5,6 +5,7 @@ public:
 	//Creates the public functions as for the Get and Set 
 	UserPlayer();
 	~UserPlayer();
+
 	void SetName(char* szName);
 	char* GetName();
 

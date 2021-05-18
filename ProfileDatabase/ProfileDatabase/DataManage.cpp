@@ -32,7 +32,7 @@ DataManage::~DataManage()
 }
 
 //Read the File
-void DataManage::ReadFile()
+void DataManage::Load()
 {
 	std::fstream file;
 	//Looks for the txt file name "data.dat" and opens the file
@@ -42,9 +42,9 @@ void DataManage::ReadFile()
 		while (!file.eof() && file.peek() != EOF)
 		{
 			//Reads into the file 
-			UserPlayer Post;
-			file.read((char*)&Post, sizeof(UserPlayer));
-			Add(Post.GetName(), Post.GetHighScore());
+			UserPlayer Order;
+			file.read((char*)&Order, sizeof(UserPlayer));
+			Add(Order.GetName(), Order.GetHighScore());
 		}
 		//Close the file
 		file.close();
@@ -52,7 +52,7 @@ void DataManage::ReadFile()
 }
 
 //Writes/Saves to the file
-void DataManage::WriteFile()
+void DataManage::Save()
 {
 	std::fstream file;
 	//Looks for the txt file name "data.dat" and opens the file
@@ -69,39 +69,32 @@ void DataManage::WriteFile()
 	}
 }
 
-//Sorts the UserPlayer name in alphabetical order
-void DataManage::Sort()
+//Creates the new UserPlayer
+void DataManage::Add(char* szName, int nScore)
 {
-	//Bubble Sort
-	bool sorted = false;
-	UserPlayer* temp;
-
-	//While loop that loops till it's alphabetical order
-	while (!sorted)
+	//Checks to see if count value is Larger or equal to MAX_ENTRIES 
+	if (count >= MAX_ENTRIES)
 	{
-		sorted = true;
-		for (int i = 0; i < count - 1; ++i)
-		{
-			//Strcmp that if the first name is after the second name it == 1, run if statement
-			if (strcmp(List[i]->GetName(), List[i + 1]->GetName()) == 1 )
-			{
-				//basically moves the Names around till the second is in the first spot and the first is in the second spot
-				(temp = List[i]);
-				(List[i] = List[i + 1]);
-				(List[i + 1] = temp);
+		//Write to the console that storge is full
+		char Restart[64];
+		std::cout << "Max proflie have been meet" << std::endl;
+		std::cout << "Write any character to go back to the start" << std::endl;
+		//A way for the String above to stay so they can read before the console refresh
+		std::cin >> Restart;
+	}
+	//Sets the name and score to the List array to the at the position at the count
+	else
+	{
+		List[count]->SetName(szName);
+		List[count]->SetHighScore(nScore);
 
-				//set the variable flase so it will run again to see if it's alphabetical order
-				sorted = false;
-			}	
-		}
+		count++;
 	}
 }
 
-//Edits the UserPlayer name and score
+//Edits the UserPlayer name and score by doing a Binary Search
 bool DataManage::EditName(char* nameFinder, char* newName, int newScore)
 {
-	//Binary Search
-
 	//Set the variables need for the binary search
 	int min = 0;
 	int max = count - 1;
@@ -139,25 +132,31 @@ bool DataManage::EditName(char* nameFinder, char* newName, int newScore)
 	}
 }
 
-//Creates the new UserPlayer
-void DataManage::Add(char* szName, int nScore)
+//Sorts the UserPlayer name in alphabetical order using Bubble Sort
+void DataManage::Sort()
 {
-	//Checks to see if count value is Larger or equal to MAX_ENTRIES 
-	if (count >= MAX_ENTRIES)
+	//variables need for the bubble sort
+	bool sorted = false;
+	UserPlayer* temp;
+
+	//While loop that loops till it's alphabetical order
+	while (!sorted)
 	{
-		//Write to the console that storge is full
-		char Restart[64];
-		std::cout << "Max proflie have been meet" << std::endl;
-		std::cout << "Write any character to go back to the start" << std::endl;
-		//A way for the String above to stay so they can read before the console refresh
-		std::cin >> Restart;
-	}
-	//Sets the name and score to the List array to the at the position at the count
-	else
-	{
-		List[count]->SetName(szName);
-		List[count]->SetHighScore(nScore);
-		count++;
+		sorted = true;
+		for (int i = 0; i < count - 1; ++i)
+		{
+			//Strcmp that if the first name is after the second name it == 1, run if statement
+			if (strcmp(List[i]->GetName(), List[i + 1]->GetName()) == 1)
+			{
+				//basically moves the Names around till the second is in the first spot and the first is in the second spot
+				(temp = List[i]);
+				(List[i] = List[i + 1]);
+				(List[i + 1] = temp);
+
+				//set the variable flase so it will run again to see if it's alphabetical order
+				sorted = false;
+			}
+		}
 	}
 }
 

@@ -6,11 +6,11 @@ public:
 	//Creates the public functions that are used throughout the program
 	DataManage();
 	~DataManage();
-	void WriteFile();
-	void ReadFile();
-	void Sort();
-	bool EditName(char* nameFinder, char* newName, int newScore);
+	void Save();
+	void Load();
 	void Add(char* szName, int nScore);
+	bool EditName(char* nameFinder, char* newName, int newScore);
+	void Sort();
 	void Print();
 
 private:
