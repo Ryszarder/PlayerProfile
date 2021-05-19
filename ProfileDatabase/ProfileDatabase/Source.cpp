@@ -41,6 +41,9 @@ int main()
 		//This function is to add a User Profile
 		if (strcmp(tool, "Add") == 0)
 		{
+			//If not the sort function will stuggle to work
+			std::cout << "Use capital letter for the first letter" << std::endl;
+
 			//Ask for the name of User
 			std::cout << "Name:" << std::endl;
 			std::cin >> name;

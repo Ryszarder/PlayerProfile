@@ -35,9 +35,16 @@ DataManage::~DataManage()
 void DataManage::Load()
 {
 	std::fstream file;
-	//Looks for the txt file name "data.dat" and opens the file
+	//Looks for the txt file name "data.dat"
 	file.open("data.dat", std::ios_base::in | std::ios_base::binary);
-	if (file.is_open())
+	//If file doesn't exists run
+	if (!file)
+	{
+		//Creates the file
+		file.open("data.dat", std::ios_base::out | std::ios_base::binary);
+	}
+	//Else Reads the file
+	else if (file.is_open())
 	{
 		while (!file.eof() && file.peek() != EOF)
 		{
